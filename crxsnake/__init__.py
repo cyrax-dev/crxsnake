@@ -4,8 +4,8 @@ from .files import read_json, write_json
 from .tortoise import Database
 from .misc import *
 
-from ...issues.hotline import IssueHotline
-from ...issues.crx import IssueCRX
+from .issues.hotline import IssueHotline
+from .issues.crx import IssueCRX
 
 
 __all__ = [
