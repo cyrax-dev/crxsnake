@@ -1,5 +1,5 @@
+from loguru import logger
 from tortoise import Tortoise
-from rich.console import Console
 
 
 class Database:
@@ -13,16 +13,11 @@ class Database:
         try:
             await Tortoise.init(db_url=self.DB_URL, modules=self.DB_MODEL)
             await Tortoise.generate_schemas()
-
         except Exception:
-            Console().print_exception(show_locals=True)
+            logger.exception("An error occurred while connecting to the database")
 
     async def db_disconnect(self) -> None:
         """
         Disconnect from the database.
         """
-        try:
-            await Tortoise.close_connections()
-
-        except Exception:
-            Console().print_exception(show_locals=True)
+        await Tortoise.close_connections()

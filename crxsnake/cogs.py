@@ -1,9 +1,10 @@
+from loguru import logger
+
 from sys import path
 from pathlib import Path
-from rich.console import Console
 
 
-async def load_cogs(bot, directory="src"):
+async def load_cogs(bot, directory="src") -> None:
     directory_path = Path(directory)
     path.append(str(directory_path))
 
@@ -13,4 +14,4 @@ async def load_cogs(bot, directory="src"):
                 try:
                     bot.load_extension(f"{entry.name}.{filename.stem}")
                 except Exception:
-                    Console().print_exception(show_locals=True)
+                    logger.exception(f"An error occurred while loading cog {entry.name}.{filename.stem}")

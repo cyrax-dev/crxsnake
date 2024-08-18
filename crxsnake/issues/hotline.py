@@ -13,13 +13,13 @@ class IssueHotline:
         return f"{part1}-{part2}-{part3}"
 
     async def __generate_count(
-        self, items_list: List[Dict[str, Any]]
+        self,
+        items_list: List[Dict[str, Any]]
     ) -> AsyncGenerator[Dict[str, Any], None]:
         """
         Generate item counts based on the MAX_STACK value.
         Splits items into full stacks and the remainder.
         """
-
         for item in items_list:
             item_count = item.get("m_count", 0)
             item_name = item.get("m_item", "")
@@ -32,12 +32,13 @@ class IssueHotline:
                 yield {"m_item": item_name, "m_count": remainder}
 
     async def create_items(
-        self, issue_name: str, items_list: List[Dict[str, Any]]
+        self,
+        issue_name: str,
+        items_list: List[Dict[str, Any]]
     ) -> Dict[str, Any]:
         """
         Create a dictionary with generated codes and processed items.
         """
-
         processed_items = [item async for item in self.__generate_count(items_list)]
         return {
             "m_CodeArray": [
@@ -55,12 +56,13 @@ class IssueHotline:
         }
 
     async def create_vehicle(
-        self, issue_name: str, items_dict: Dict[str, Any]
+        self,
+        issue_name: str,
+        items_dict: Dict[str, Any]
     ) -> Dict[str, Any]:
         """
         Create a dictionary with generated code and vehicle data.
         """
-
         return {
             "m_CodeArray": [
                 {

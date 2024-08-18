@@ -9,11 +9,11 @@ from .issues.crx import IssueCRX
 
 
 __all__ = [
-    IssueHotline,
-    IssueCRX,
-    logger,
-    Database,
-    read_json,
-    write_json,
-    load_cogs,
+    "logger",
+    "load_cogs",
+    "read_json",
+    "write_json",
+    "Database",
+    "IssueHotline",
+    "IssueCRX",
 ]

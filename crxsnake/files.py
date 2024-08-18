@@ -1,8 +1,8 @@
+from loguru import logger
+from aiofiles import open
+
 from typing import Optional, Any
 from json import loads, dumps
-
-from aiofiles import open
-from rich.console import Console
 
 
 async def read_json(path: str, *keys: str) -> Optional[Any]:
@@ -22,16 +22,16 @@ async def read_json(path: str, *keys: str) -> Optional[Any]:
             return file_data
 
     except Exception:
-        Console().print_exception(show_locals=True)
+        logger.exception("An error occurred while reading json file")
 
 
-async def write_json(path: str, data: Any) -> None:
+async def write_json(path: str, data: Any) -> bool:
     """
     Write data to json file.
     """
     try:
         async with open(path, "w", encoding="utf-8") as file:
             await file.write(dumps(data, ensure_ascii=False, indent=2))
-
+            return True
     except Exception:
-        Console().print_exception(show_locals=True)
+        logger.exception("An error occurred while writing json file")
