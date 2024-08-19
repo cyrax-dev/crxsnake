@@ -1,3 +1,6 @@
+import os
+import sys
+
 from datetime import datetime
 
 red = 16711680
@@ -14,3 +17,8 @@ time_short_time = f"<t:{timestamp}:t>"
 time_long_time = f"<t:{timestamp}:T>"
 time_full = f"<t:{timestamp}:f>"
 time_relative = f"<t:{timestamp}:R>"
+
+
+async def restart():
+    python = sys.executable
+    os.execl(python, python, '-B', *sys.argv)

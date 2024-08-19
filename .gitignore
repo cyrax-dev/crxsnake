@@ -2,6 +2,7 @@
 setup.py
 
 # Folders
+.venv/
 dist/
 build/
 crxsnake.egg-info/
