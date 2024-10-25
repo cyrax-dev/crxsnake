@@ -17,12 +17,12 @@ async def read_json(path: str, *keys: str) -> Optional[Any]:
             for key in keys:
                 if key not in file_data:
                     return None
-
                 file_data = file_data[key]
+
             return file_data
 
     except Exception:
-        logger.exception("An error occurred while reading json file")
+        raise
 
 
 async def write_json(path: str, data: Any) -> bool:
@@ -34,4 +34,4 @@ async def write_json(path: str, data: Any) -> bool:
             await file.write(dumps(data, ensure_ascii=False, indent=2))
             return True
     except Exception:
-        logger.exception("An error occurred while writing json file")
+        raise

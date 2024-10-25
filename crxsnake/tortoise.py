@@ -17,7 +17,4 @@ class Database:
             logger.exception("An error occurred while connecting to the database")
 
     async def db_disconnect(self) -> None:
-        """
-        Disconnect from the database.
-        """
         await Tortoise.close_connections()
