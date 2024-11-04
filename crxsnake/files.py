@@ -1,8 +1,7 @@
-from loguru import logger
-from aiofiles import open
-
 from typing import Optional, Any
 from json import loads, dumps
+
+from aiofiles import open
 
 
 async def read_json(path: str, *keys: str) -> Optional[Any]:

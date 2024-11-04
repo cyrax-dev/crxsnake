@@ -4,8 +4,8 @@ from sys import path
 from pathlib import Path
 
 
-async def load_cogs(bot, directory="src") -> None:
-    directory_path = Path(directory)
+async def load_cogs(bot) -> None:
+    directory_path = Path("src")
     path.append(str(directory_path))
 
     for entry in directory_path.iterdir():
