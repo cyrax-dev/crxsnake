@@ -75,8 +75,8 @@ class EmbedMessage:
     ) -> Embed:
         """Return Embed"""
         embed = Embed(
-            title=title if title else "Без названия",
-            description=description if description else "Описание отсутствует",
+            title=title,
+            description=description,
             url=url,
             color=color
         )
