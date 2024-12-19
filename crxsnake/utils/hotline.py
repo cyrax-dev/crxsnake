@@ -79,8 +79,11 @@ class IssueHotline:
                     "m_itemsArray": [],
                     "m_teleport_position": "",
                     "m_vehicles": items_dict,
+                    "m_give_zone_position": "",
+                    "m_give_zone_radius": 0,
                     "m_give_zone_positions": [],
                     "m_give_zone_positions_forbidden": [],
+                    "m_fresh_spawn_delay": 0
                 }
             ]
         }
