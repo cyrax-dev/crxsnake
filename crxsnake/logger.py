@@ -26,3 +26,4 @@ logger.add(
     level="ERROR",
     filter=lambda record: record["level"].name == "ERROR",
 )
+log = logger

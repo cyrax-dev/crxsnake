@@ -1,8 +1,6 @@
 import re
 import os
 import sys
-
-from datetime import datetime
 from disnake import Embed
 
 
@@ -17,10 +15,6 @@ trans = 2829617
 def restart():
     python = sys.executable
     os.execl(python, python, '-B', *sys.argv)
-
-
-def get_unix_time() -> int:
-    return int(datetime.now().timestamp())
 
 
 def get_user_id(field_index: int, embed: Embed) -> int:
