@@ -1,4 +1,4 @@
-from logger import log
+from .logger import log
 from tortoise import Tortoise
 
 

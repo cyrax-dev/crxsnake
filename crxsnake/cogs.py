@@ -1,6 +1,6 @@
 from sys import path
 from pathlib import Path
-from logger import log
+from .logger import log
 
 
 async def load_cogs(bot, folder: str = "src", utils_folder: str = "utils") -> None:
