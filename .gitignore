@@ -1,8 +1,10 @@
 # Files
 setup.py
+.gitignore
 
 # Folders
 .venv/
+.git/
 dist/
 build/
 crxsnake.egg-info/
