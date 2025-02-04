@@ -1,6 +1,4 @@
 from .tortoise import Database
-from .embed import EmbedMessage
-
 from .logger import log
 from .cogs import load_cogs
 
@@ -9,11 +7,12 @@ from .files import *
 from .utils.misc import *
 from .utils.hotline import *
 from .utils.convert import *
+from .utils.embed_log import *
 
 
 __all__ = [
     "Database",
-    "EmbedMessage",
+    "EmbedLog",
 
     "log",
     "load_cogs",
