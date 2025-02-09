@@ -4,7 +4,7 @@ from tortoise import Tortoise
 
 class Database:
 
-    def __init__(self, db_url: str):
+    def __init__(self, db_url: str = "sqlite://settings/database/database.db"):
         self.db_url = db_url
 
     async def db_connect(self) -> None:
