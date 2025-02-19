@@ -16,7 +16,7 @@ class CodeArray:
     m_give_zone_positions_forbidden: List[Dict[str, Any]] = field(default_factory=list)
 
 
-class IssueHotline:
+class Hotline:
     MAX_STACK = 100
 
     @staticmethod

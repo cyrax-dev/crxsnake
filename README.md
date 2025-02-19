@@ -4,7 +4,7 @@
 
 ## Description
 
-CRX-Snake was developed specifically for internal use and is now available to other developers. It provides user-friendly features and solutions for common tasks in bot development and project management. It includes:
+crxsnake was developed specifically for internal use and is now available to other developers. It provides user-friendly features and solutions for common tasks in bot development and project management. It includes:
 
 - **Features for working with Discord**: Tools for creating and managing Discord bots using the Disnake library.
 - **File Utilities**: Functions for reading and writing JSON files, making it easy to work with configurations and data.

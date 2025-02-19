@@ -1,5 +1,6 @@
-from typing import Optional, Tuple, List, NoReturn
+from typing import Optional, Tuple, List
 from disnake import TextChannel, User, Embed, Forbidden, HTTPException
+from crxsnake.logger import log
 
 
 class EmbedLog:
@@ -16,9 +17,8 @@ class EmbedLog:
         image: Optional[str] = None,
         footer: Optional[str] = None,
     ) -> Embed:
-        """Создает Embed с заданными параметрами."""
-        embed = Embed(title=title, description=desc, color=color, url=url)
 
+        embed = Embed(title=title, description=desc, color=color, url=url)
         if fields:
             for name, value, inline in fields:
                 embed.add_field(name=name, value=value, inline=inline)
@@ -46,14 +46,15 @@ class EmbedLog:
         custom_embed: Optional[Embed] = None,
     ) -> None:
         embed = custom_embed or self.build_embed(
-            title, color, fields, desc, url, thumbnail, image, footer
+            title, color, fields, desc,
+            url, thumbnail, image, footer
         )
         try:
             await channel.send(embed=embed)
         except Forbidden:
-            print(f"[Ошибка] Нет прав на отправку сообщений в канал {channel.name}")
+            log.error("Not enough permissions to send embed", "LogEmbed")
         except HTTPException as e:
-            print(f"[Ошибка] Не удалось отправить сообщение: {e}")
+            log.error("Error when sending embed", "LogEmbed", e)
 
     async def send_user(
         self,
