@@ -39,6 +39,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -51,6 +54,12 @@ jobs:
 
       - name: Verify Poetry Installation
         run: poetry --version
+
+      - name: Debug Working Directory
+        run: pwd && ls -la
+
+      - name: Change to repo root
+        run: cd $GITHUB_WORKSPACE
 
       - name: Download build artifacts
         uses: actions/download-artifact@v4
