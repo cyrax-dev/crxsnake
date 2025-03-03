@@ -19,7 +19,12 @@ jobs:
           python-version: "3.12"
 
       - name: Install Poetry
-        run: pip install poetry
+        run: |
+          pip install poetry
+          poetry config virtualenvs.create false
+
+      - name: Verify Poetry Installation
+        run: poetry --version
 
       - name: Build package
         run: poetry build
@@ -34,6 +39,19 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install Poetry
+        run: |
+          pip install poetry
+          poetry config virtualenvs.create false
+
+      - name: Verify Poetry Installation
+        run: poetry --version
+
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
